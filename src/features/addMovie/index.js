@@ -1,12 +1,22 @@
 import { IconButton, InputBase, Paper } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
+import MovieSearchResult from '../../components/MovieSearchResult';
 import SearchIcon from '@mui/icons-material/Search';
-import useGetMoviesMutation from '../../services/movieApi';
+import { useGetMoviesMutation } from '../../services/movieApi';
 
 const AddMovie = () => {
    const [query, setQuery] = useState('');
-   const [getMovies] = useGetMoviesMutation();
+   const [getMovies, { data: movies }] = useGetMoviesMutation();
+   useEffect(() => {
+      if (query) {
+         fetchMovie();
+      }
+   }, [query]);
+   const fetchMovie = async () => {
+      await getMovies({ query });
+   };
+
    const handleSearch = (e) => {
       setQuery(e.target.value);
    };
@@ -39,6 +49,12 @@ const AddMovie = () => {
                <SearchIcon />
             </IconButton>
          </Paper>
+         <div className="results">
+            {movies?.results?.length > 0 &&
+               movies?.results?.map((movie) => (
+                  <MovieSearchResult key={movie.id} movie={movie} />
+               ))}
+         </div>
       </div>
    );
 };
