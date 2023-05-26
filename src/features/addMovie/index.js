@@ -10,14 +10,13 @@ const AddMovie = () => {
    const [getMovies, { data: movies }] = useGetMoviesMutation();
 
    useEffect(() => {
+      const fetchMovie = async () => {
+         await getMovies({ query });
+      };
       if (query) {
          fetchMovie();
       }
-   }, [query]);
-
-   const fetchMovie = async () => {
-      await getMovies({ query });
-   };
+   }, [query, getMovies]);
 
    const handleSearch = (e) => {
       setQuery(e.target.value);
