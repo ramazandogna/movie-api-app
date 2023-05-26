@@ -10,14 +10,18 @@ import {
 
 import Moment from 'react-moment';
 import React from 'react';
+import { addMovieToWatchlist } from '../features/addMovie/moviesSlice';
+import { useDispatch } from 'react-redux';
 
 const MovieSearchResult = ({ movie }) => {
+   const dispatch = useDispatch();
    return (
       <Card sx={{ display: 'flex', height: 170, m: 1 }}>
          <CardMedia
             component="img"
             sx={{ width: 151 }}
             image={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            alt={movie.title}
          />
          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
@@ -28,7 +32,12 @@ const MovieSearchResult = ({ movie }) => {
                   <Moment format="YYYY">{movie.release_date}</Moment>
                </Typography>
                <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
-                  <Button variant="contained">Add to Watchlist</Button>
+                  <Button
+                     variant="contained"
+                     onClick={() => dispatch(addMovieToWatchlist(movie))}
+                  >
+                     Add to Watchlist
+                  </Button>
                </Stack>
             </CardContent>
          </Box>

@@ -8,11 +8,13 @@ import { useGetMoviesMutation } from '../../services/movieApi';
 const AddMovie = () => {
    const [query, setQuery] = useState('');
    const [getMovies, { data: movies }] = useGetMoviesMutation();
+
    useEffect(() => {
       if (query) {
          fetchMovie();
       }
    }, [query]);
+
    const fetchMovie = async () => {
       await getMovies({ query });
    };
