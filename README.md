@@ -17,4 +17,4 @@ React, Redux-Toolkit, RTK-Query & Redux-Persist and Material-UI
 
 Will Soon
 
-<!-- ![App Screenshot](https://github.com/ramazandogna/portfolio-react-dem/blob/main/src/assets/img/4.png?raw=true) -->
+![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png)
