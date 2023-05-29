@@ -10,7 +10,11 @@ const WatchListMovies = () => {
    console.log(watchlistMovies);
    return (
       <Container fixed>
-         <Typography variant="h4" style={{ fontWeight: '600' }} mt={4}>
+         <Typography
+            variant="h4"
+            style={{ fontWeight: '600', marginLeft: '40px' }}
+            mt={4}
+         >
             My Watchlist
          </Typography>
          {watchlistMovies.length > 0 ? (

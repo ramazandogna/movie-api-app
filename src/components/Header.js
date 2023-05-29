@@ -11,48 +11,50 @@ const header = () => {
       <>
          <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-               <Toolbar>
-                  <Typography
-                     style={{ fontWeight: '700', marginLeft: '40px' }}
-                     sx={{ flexGrow: '1' }}
-                  >
-                     <Link to="/" style={{ fontSize: '32px' }}>
-                        Movie Watchlist
+               <div className="container">
+                  <Toolbar>
+                     <Typography
+                        style={{ fontWeight: '700', marginLeft: '40px' }}
+                        sx={{ flexGrow: '1' }}
+                     >
+                        <Link to="/" style={{ fontSize: '32px' }}>
+                           Movie Watchlist
+                        </Link>
+                     </Typography>
+                     <Link to="/">
+                        <Button
+                           color="inherit"
+                           style={{ fontWeight: '500', fontSize: '20px' }}
+                        >
+                           Watchlist
+                        </Button>
                      </Link>
-                  </Typography>
-                  <Link to="/">
-                     <Button
-                        color="inherit"
-                        style={{ fontWeight: '500', fontSize: '20px' }}
-                     >
-                        Watchlist
-                     </Button>
-                  </Link>
-                  <Link to="/">
-                     <Button
-                        color="inherit"
-                        style={{ fontWeight: '500', fontSize: '20px' }}
-                     >
-                        Watchlist
-                     </Button>
-                  </Link>
-                  <Link to="/watched">
-                     <Button
-                        color="inherit"
-                        style={{ fontWeight: '500', fontSize: '20px' }}
-                     >
-                        Watched
-                     </Button>
-                  </Link>
-                  <Link to="/add">
-                     <Button
-                        color="inherit"
-                        style={{ fontWeight: '500', fontSize: '20px' }}
-                     >
-                        Add
-                     </Button>
-                  </Link>
-               </Toolbar>
+                     <Link to="/">
+                        <Button
+                           color="inherit"
+                           style={{ fontWeight: '500', fontSize: '20px' }}
+                        >
+                           Watchlist
+                        </Button>
+                     </Link>
+                     <Link to="/watched">
+                        <Button
+                           color="inherit"
+                           style={{ fontWeight: '500', fontSize: '20px' }}
+                        >
+                           Watched
+                        </Button>
+                     </Link>
+                     <Link to="/add">
+                        <Button
+                           color="inherit"
+                           style={{ fontWeight: '500', fontSize: '20px' }}
+                        >
+                           Add
+                        </Button>
+                     </Link>
+                  </Toolbar>
+               </div>
             </AppBar>
          </Box>
       </>

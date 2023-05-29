@@ -10,13 +10,15 @@ import WatchedMovies from './features/watchedMovies';
 
 function App() {
    return (
-      <BrowserRouter>
+      <BrowserRouter classname="container">
          <Header />
-         <Routes>
-            <Route path="/add" element={<AddMovie />} />
-            <Route path="/" element={<WatchListMovies />} />
-            <Route path="/watched" element={<WatchedMovies />} />
-         </Routes>
+         <div className="container">
+            <Routes>
+               <Route path="/add" element={<AddMovie />} />
+               <Route path="/" element={<WatchListMovies />} />
+               <Route path="/watched" element={<WatchedMovies />} />
+            </Routes>
+         </div>
       </BrowserRouter>
    );
 }
