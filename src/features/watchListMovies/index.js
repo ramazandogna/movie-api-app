@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 const WatchListMovies = () => {
    const watchlistMovies = useSelector(selectAllWatchlistMovies);
-   console.log(watchlistMovies);
    return (
       <Container fixed>
          <Typography
@@ -19,7 +18,7 @@ const WatchListMovies = () => {
          </Typography>
          {watchlistMovies.length > 0 ? (
             <>
-               <MovieGrid movies={watchlistMovies} />
+               <MovieGrid movies={watchlistMovies} type="watchlist" />
             </>
          ) : (
             <>
