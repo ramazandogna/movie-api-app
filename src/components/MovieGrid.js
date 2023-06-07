@@ -8,7 +8,7 @@ const MovieGrid = ({ movies, type }) => {
          <Grid item xs={12}>
             <Grid container justifyContent="center" spacing={2}>
                {movies.map((movie) => (
-                  <div key={movie.payload.id}>
+                  <div key={movie.payload}>
                      <Grid item>
                         <MovieCard movie={movie} type={type} />
                      </Grid>

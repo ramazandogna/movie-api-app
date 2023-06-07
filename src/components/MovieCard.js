@@ -26,8 +26,8 @@ const MovieCard = ({ movie, type }) => {
                <CardMedia
                   component="img"
                   sx={{ width: 220 }}
-                  image={`https://image.tmdb.org/t/p/w200${movie.payload.poster_path}`}
-                  alt={movie.payload.title}
+                  image={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  alt={movie.title}
                />
                <MovieControl type={type} movie={movie} display={display} />
             </div>

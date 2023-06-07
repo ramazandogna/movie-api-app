@@ -7,14 +7,24 @@ import {
    Stack,
    Typography,
 } from '@mui/material';
+import {
+   addMovieToWatchlist,
+   selectAllWatchlistMovies,
+} from '../features/addMovie/moviesSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Moment from 'react-moment';
 import React from 'react';
-import { addMovieToWatchlist } from '../features/addMovie/moviesSlice';
-import { useDispatch } from 'react-redux';
 
 const MovieSearchResult = ({ movie }) => {
    const dispatch = useDispatch();
+
+   //disabling to add button when watchlist has already this movie
+   const watchlistMovies = useSelector(selectAllWatchlistMovies);
+   const watchlistDisabled = watchlistMovies.some(
+      (item) => item.id === movie.id
+   );
+
    return (
       <Card sx={{ display: 'flex', height: 170, m: 1 }}>
          <CardMedia
@@ -33,6 +43,7 @@ const MovieSearchResult = ({ movie }) => {
                </Typography>
                <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
                   <Button
+                     disabled={watchlistDisabled}
                      variant="contained"
                      onClick={() => dispatch(addMovieToWatchlist(movie))}
                   >

@@ -10,7 +10,7 @@ const movieSlice = createSlice({
    initialState: initialState,
    reducers: {
       addMovieToWatchlist(state, action) {
-         state.watchlistMovies.push(action);
+         state.watchlistMovies.push(action.payload);
       },
       AddMovieToWatched(state, action) {
          const movieToRemoveIndex = state.watchlistMovies.findIndex(
