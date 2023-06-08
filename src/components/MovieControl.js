@@ -1,8 +1,10 @@
-import {
-   AddMovieToWatched,
-   RemoveMovieFromWatchlist,
-} from '../features/addMovie/moviesSlice';
 import { Button, Stack } from '@mui/material';
+import {
+   addMovieToWatched,
+   moveToWatchlist,
+   removeFromWatched,
+   removeMovieFromWatchlist,
+} from '../features/addMovie/moviesSlice';
 
 import React from 'react';
 import styled from '@emotion/styled';
@@ -27,12 +29,24 @@ const MovieControl = ({ type, movie, display }) => {
          {type === 'watchlist' && (
             <Stack direction="row">
                <ControllButton
-                  onClick={() => dispatch(AddMovieToWatched(movie))}
+                  onClick={() => dispatch(addMovieToWatched(movie))}
                >
                   <i className="fa-fw far fa-eye"></i>
                </ControllButton>
                <ControllButton
-                  onClick={() => dispatch(RemoveMovieFromWatchlist(movie.id))}
+                  onClick={() => dispatch(removeMovieFromWatchlist(movie.id))}
+               >
+                  <i className="fa-fw fa fa-times"></i>
+               </ControllButton>
+            </Stack>
+         )}
+         {type === 'watched' && (
+            <Stack direction="row">
+               <ControllButton onClick={() => dispatch(moveToWatchlist(movie))}>
+                  <i className="fa-fw far fa-eye-slash"></i>
+               </ControllButton>
+               <ControllButton
+                  onClick={() => dispatch(removeFromWatched(movie.id))}
                >
                   <i className="fa-fw fa fa-times"></i>
                </ControllButton>

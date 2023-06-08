@@ -12,33 +12,40 @@ const movieSlice = createSlice({
       addMovieToWatchlist(state, action) {
          state.watchlistMovies.push(action.payload);
       },
-      AddMovieToWatched(state, action) {
-         const movieToRemoveIndex = state.watchlistMovies.findIndex(
-            (movie) => movie.id === action.payload.id
+      addMovieToWatched(state, action) {
+         state.watchlistMovies = state.watchlistMovies.filter(
+            (movie) => movie.id !== action.payload.id
          );
-         if (movieToRemoveIndex !== -1) {
-            const movieToRemove = state.watchlistMovies[movieToRemoveIndex];
-            state.watchlistMovies.splice(movieToRemoveIndex, 1);
-            state.watchedMovies.push(movieToRemove);
-         }
+         state.watchedMovies.push(action.payload);
       },
-      RemoveMovieFromWatchlist(state, action) {
-         const movieIndex = state.watchlistMovies.findIndex(
-            (movie) => movie.id === action.payload
+      removeMovieFromWatchlist(state, action) {
+         state.watchlistMovies = state.watchlistMovies.filter(
+            (movie) => movie.id !== action.payload.id
          );
-         if (movieIndex !== -1) {
-            state.watchlistMovies.splice(movieIndex, 1);
-         }
+      },
+      moveToWatchlist(state, action) {
+         state.watchedMovies = state.watchedMovies.filter(
+            (movie) => movie.id !== action.payload.id
+         );
+         state.watchedMovies.push(action.payload);
+      },
+      removeFromWatched(state, action) {
+         state.watchedMovies = state.watchedMovies.filter(
+            (movie) => movie.id !== action.payload.id
+         );
       },
    },
 });
 
 export const selectAllWatchlistMovies = (state) => state.movies.watchlistMovies;
+export const selectAllWatchedMovies = (state) => state.movies.watchedMovies;
 
 export const {
    addMovieToWatchlist,
-   RemoveMovieFromWatchlist,
-   AddMovieToWatched,
+   removeMovieFromWatchlist,
+   addMovieToWatched,
+   moveToWatchlist,
+   removeFromWatched,
 } = movieSlice.actions;
 
 export default movieSlice.reducer;

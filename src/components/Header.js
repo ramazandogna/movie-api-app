@@ -21,14 +21,7 @@ const header = () => {
                            Movie Watchlist
                         </Link>
                      </Typography>
-                     <Link to="/">
-                        <Button
-                           color="inherit"
-                           style={{ fontWeight: '500', fontSize: '20px' }}
-                        >
-                           Watchlist
-                        </Button>
-                     </Link>
+
                      <Link to="/">
                         <Button
                            color="inherit"
