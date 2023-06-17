@@ -24,10 +24,14 @@ const movieSlice = createSlice({
          );
       },
       moveToWatchlist(state, action) {
-         state.watchedMovies = state.watchedMovies.filter(
-            (movie) => movie.id !== action.payload.id
+         const movieIndex = state.watchedMovies.findIndex(
+            (movie) => movie.id === action.payload
          );
-         state.watchedMovies.push(action.payload);
+         if (movieIndex !== -1) {
+            const movie = state.watchedMovies[movieIndex];
+            state.watchedMovies.splice(movieIndex, 1);
+            state.watchlistMovies.push(movie);
+         }
       },
       removeFromWatched(state, action) {
          state.watchedMovies = state.watchedMovies.filter(

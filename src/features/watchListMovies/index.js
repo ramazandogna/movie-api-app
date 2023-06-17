@@ -1,5 +1,6 @@
 import { Container, Typography } from '@mui/material';
 
+import Message from '../../components/Message';
 import MovieGrid from '../../components/MovieGrid';
 import React from 'react';
 import { selectAllWatchlistMovies } from '../addMovie/moviesSlice';
@@ -22,7 +23,7 @@ const WatchListMovies = () => {
             </>
          ) : (
             <>
-               <h2>There is no any movie</h2>
+               <Message title={'Please Add Your Favorite Movies'} />
             </>
          )}
       </Container>

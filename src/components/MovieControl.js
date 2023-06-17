@@ -34,7 +34,9 @@ const MovieControl = ({ type, movie, display }) => {
                   <i className="fa-fw far fa-eye"></i>
                </ControllButton>
                <ControllButton
-                  onClick={() => dispatch(removeMovieFromWatchlist(movie.id))}
+                  onClick={() =>
+                     dispatch(removeMovieFromWatchlist({ id: movie.id }))
+                  }
                >
                   <i className="fa-fw fa fa-times"></i>
                </ControllButton>
@@ -42,11 +44,13 @@ const MovieControl = ({ type, movie, display }) => {
          )}
          {type === 'watched' && (
             <Stack direction="row">
-               <ControllButton onClick={() => dispatch(moveToWatchlist(movie))}>
+               <ControllButton
+                  onClick={() => dispatch(moveToWatchlist(movie.id))}
+               >
                   <i className="fa-fw far fa-eye-slash"></i>
                </ControllButton>
                <ControllButton
-                  onClick={() => dispatch(removeFromWatched(movie.id))}
+                  onClick={() => dispatch(removeFromWatched({ id: movie.id }))}
                >
                   <i className="fa-fw fa fa-times"></i>
                </ControllButton>

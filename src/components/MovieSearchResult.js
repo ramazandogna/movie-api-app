@@ -8,7 +8,9 @@ import {
    Typography,
 } from '@mui/material';
 import {
+   addMovieToWatched,
    addMovieToWatchlist,
+   selectAllWatchedMovies,
    selectAllWatchlistMovies,
 } from '../features/addMovie/moviesSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,9 +23,17 @@ const MovieSearchResult = ({ movie }) => {
 
    //disabling to add button when watchlist has already this movie
    const watchlistMovies = useSelector(selectAllWatchlistMovies);
-   const watchlistDisabled = watchlistMovies.some(
-      (item) => item.id === movie.id
-   );
+   const watchedMovies = useSelector(selectAllWatchedMovies);
+
+   let storedMovies = watchlistMovies.find((item) => item.id === movie.id);
+   let storedMoviesWatched = watchedMovies.find((item) => item.id === movie.id);
+
+   const watchlistDisabled = storedMovies
+      ? true
+      : storedMoviesWatched
+      ? true
+      : false;
+   const watchedDisabled = storedMoviesWatched ? true : false;
 
    return (
       <Card sx={{ display: 'flex', height: 170, m: 1 }}>
@@ -48,6 +58,14 @@ const MovieSearchResult = ({ movie }) => {
                      onClick={() => dispatch(addMovieToWatchlist(movie))}
                   >
                      Add to Watchlist
+                  </Button>
+                  <Button
+                     style={{ backgroundColor: 'purple' }}
+                     disabled={watchedDisabled}
+                     variant="contained"
+                     onClick={() => dispatch(addMovieToWatched(movie))}
+                  >
+                     Add to Watched
                   </Button>
                </Stack>
             </CardContent>
