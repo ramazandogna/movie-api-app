@@ -20,5 +20,9 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 export const store = configureStore({
    reducer: persistedReducer,
    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(movieApi.middleware),
+      getDefaultMiddleware({
+         serializableCheck: {
+            ignoredActions: ['persist/PERSIST'], // Serileştirme kontrolünden hariç tutulan eylem
+         },
+      }).concat(movieApi.middleware),
 });
