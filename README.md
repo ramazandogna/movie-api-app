@@ -22,11 +22,3 @@ React, Redux-Toolkit, RTK-Query & Redux-Persist and Material-UI
 **Watchlist**
 
 ![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png)
-
-<!-- **Reducers**
-
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png)
-
-**Store**
-
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png) -->
