@@ -17,7 +17,7 @@ React, Redux-Toolkit, RTK-Query & Redux-Persist and Material-UI
 
 **Watchlist**
 
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/watchlist.png)
+![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/watchlist-1.png)
 
 **Add Page**
 
