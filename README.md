@@ -15,10 +15,10 @@ React, Redux-Toolkit, RTK-Query & Redux-Persist and Material-UI
 
 ## Screenshots
 
-**Add Page**
-
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png)
-
 **Watchlist**
+
+![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/watchlist.png)
+
+**Add Page**
 
 ![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png)
