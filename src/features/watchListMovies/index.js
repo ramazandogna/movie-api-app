@@ -19,7 +19,10 @@ const WatchListMovies = () => {
          </Typography>
          {watchlistMovies.length > 0 ? (
             <>
-               <MovieGrid movies={watchlistMovies} type="watchlist" />
+               <MovieGrid
+                  movies={watchlistMovies}
+                  type="watchlist"
+               />
             </>
          ) : (
             <>
